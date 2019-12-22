@@ -1,0 +1,7 @@
+{
+    "/fdc/v1/*": {
+      "target": "https://api.nal.usda.gov",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
