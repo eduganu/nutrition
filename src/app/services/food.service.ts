@@ -24,8 +24,6 @@ export class FoodService {
   }
 
   getDetails(fcdId:number):Observable<any>{
-    console.log("Numero recibido: " + fcdId)
-    
     return this.http.get<any>(apiURL + fcdId + "?" + this.keyParameter )
   }
 }

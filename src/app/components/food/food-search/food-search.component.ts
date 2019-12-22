@@ -20,15 +20,6 @@ export class FoodSearchComponent implements OnInit {
     
   }
 
-  searchName(){
-    if (this.foodName.length > 3) {
-      this.foodService.search(this.foodName).subscribe(datos => {
-        this.resultado = datos
-        console.log(this.resultado.foodSearchCriteria) 
-      })
-    }
-  }
-
   busqueda() {
     console.log(this.foodName)
     this.foodService.search(this.foodName).subscribe(datos => {
