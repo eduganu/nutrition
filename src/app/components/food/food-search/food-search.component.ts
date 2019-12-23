@@ -51,6 +51,12 @@ export class FoodSearchComponent implements OnInit {
     }
   }
 
+  onKeyUp(event) {
+    if(event.key === "Enter") {
+      this.busqueda();
+    }
+  }
+
   selectItem(event:any){
     console.log(event.data)
   } 
