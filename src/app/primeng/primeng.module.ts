@@ -7,6 +7,8 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
 import {CardModule} from 'primeng/card';
+import {SpinnerModule} from 'primeng/spinner';
+
 
 
 
@@ -19,7 +21,8 @@ import {CardModule} from 'primeng/card';
     BrowserAnimationsModule,
     ButtonModule,
     TableModule,
-    CardModule
+    CardModule,
+    SpinnerModule
   ],
   exports:[
     InputTextModule,
@@ -27,7 +30,8 @@ import {CardModule} from 'primeng/card';
     BrowserAnimationsModule,
     ButtonModule,
     TableModule,
-    CardModule
+    CardModule,
+    SpinnerModule
   ]
 })
 export class PrimengModule { }

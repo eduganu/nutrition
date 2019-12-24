@@ -24,6 +24,7 @@ export class FoodSearchComponent implements OnInit {
     console.log(this.foodName)
     this.foodService.search(this.foodName).subscribe(datos => {
       this.resultado = datos
+      console.log(datos)
       console.log(this.resultado.foodSearchCriteria)
       console.log(this.resultado.foods)
 

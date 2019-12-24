@@ -1,7 +1,20 @@
-<h1>Food Information</h1>
+<body>
+    <div class="layout-topbar">
+        <h2>Food Information</h2>
+        <ul class="topbar-menu">
+            <li>
+                <a href="/searchFood">Search Food</a>
+            </li>
+        </ul>
+    </div>
 
-<p-menu #menu [popup]="true" [model]="items"></p-menu>
-<button type="button" pButton icon="pi pi-bars" label="Menu" (click)="menu.toggle($event)"></button>
-
-
-<router-outlet></router-outlet>
+    <!--
+    <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    <button type="button" pButton icon="pi pi-bars" label="Menu" (click)="menu.toggle($event)"></button>
+    -->
+    <div class="layout-content">
+        <div class="ng-tns-c0-0">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,16 @@
+.derecha{
+    text-align: right !important;
+}
+
+.centrado {
+    text-align: left !important;
+}
+
+
+th:nth-child(2){
+    width: 25%;
+}
+
+th:nth-child(3){
+    width: 15%;
+}

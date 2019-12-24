@@ -1,7 +1,34 @@
-<div *ngIf="foodDetailed">
-    <h2>{{foodDetailed.description}}</h2>
+<div class="content-section">
+
+    <div *ngIf="foodDetailed">
+        <h2>{{foodDetailed.description}}</h2>
+        <h3>Amount ({{foodDetailed.servingSizeUnit}})</h3>
+        <p-spinner [min]="0" [(ngModel)]="amount" (onChange)="updateValues()"></p-spinner> 
+    </div>
+    <div class="ui-g-12 ui-lg-4 ui-md-8 ui-sm-12">
+        <p-table  *ngIf="labelList" [value]="labelList">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Unit</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-nutrient>
+                <tr>
+                    <td>{{nutrient[1].name}}</td>
+                    <td class="derecha">{{nutrient[1].value}}</td>
+                    <td class="centrado">{{nutrient[1].units}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div class="ui-g-12 ui-lg-1"></div>
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <p-card>
+            <canvas #radarCanvas width="600" height="300"></canvas>
+        </p-card>
+    </div>
 </div>
 
-<p-card>
-<canvas #radarCanvas width="600" height="300"></canvas>
-</p-card>
