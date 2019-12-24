@@ -42,7 +42,7 @@ export class FoodSearchComponent implements OnInit {
   }
 
   previousPage() {
-    if (this.resultado.currentPage > 2) {
+    if (this.resultado.currentPage > 1) {
       this.foodService.search(this.resultado.foodSearchCriteria.generalSearchInput, 
                                       this.resultado.foodSearchCriteria.pageNumber - 1)
                                       .subscribe(datos => {

@@ -54,7 +54,6 @@ export class FoodDetailsComponent implements OnInit {
         console.log(this.foodDetailed)
         console.log(this.foodNutrients[1])
         console.log(this.foodDetailed.labelNutrients)
-        console.log(this.radarCanvas.nativeElement)
         this.initGraph();
       })
       
