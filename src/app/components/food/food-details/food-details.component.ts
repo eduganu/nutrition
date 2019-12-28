@@ -37,28 +37,6 @@ export class FoodDetailsComponent implements OnInit {
   
   private radarChart: Chart;
   
-  /*private parametros = {
-    type: "radar",
-    data: {
-      labels: ["Energy", "Carbohydrate", "Total Fat", "Saturated Fat", "Sugars", "Salt", "Protein"],
-      datasets:[{
-        label:"Relative to daily Percentage",
-        data: [],
-        backgroundColor: 'rgb(30, 130, 140, 0.2)',
-        borderColor: 'rgb(30, 130, 140, 0.8)'
-      }],
-    },
-    options: {
-      scale: {
-        ticks: {
-          suggestedMin: 0,
-          suggestedMax: 100
-        }
-      },
-    }
-  }*/
-
-
   constructor(private foodService:FoodService,
               private activatedRoute:ActivatedRoute,
               private userService:UserService) { }
@@ -84,13 +62,12 @@ export class FoodDetailsComponent implements OnInit {
 
         console.log(this.foodDetailed);
 
-        //this.mapNutrientsLabel(); //aixo s'hauria de poder fer dins d'un servei
         this.originalNutrientsLabel = this.foodService.mapNutrientsLabel(this.foodNutrients)
         this.updateValues();
 
 
         this.labelList = Object.entries(this.updatedNutrientsLabel);
-        //this.calculatePercentage();
+
         this.initGraph();
 
         console.log(this.updatedNutrientsLabel)
@@ -112,7 +89,6 @@ export class FoodDetailsComponent implements OnInit {
 
   updateValues(){
     this.updatedNutrientsLabel = this.foodService.updateNutrientsValues(this.originalNutrientsLabel, this.amount)
-    //this.calculatePercentage();
     this.chartValues = this.foodService.calculatePercentage(this.updatedNutrientsLabel)
     this.initGraph();
   }
