@@ -3,8 +3,9 @@
         <h2>Food Information</h2>
         <ul class="topbar-menu">
             <li>
-                <a href="/searchFood">Search Food</a>
+                <a (click)="clearHist()" routerLink="/searchFood">Search Food</a>
             </li>
+                <a (click)="clearHist()" routerLink="/user/foods"><i class="pi pi-user"></i></a>
         </ul>
     </div>
 

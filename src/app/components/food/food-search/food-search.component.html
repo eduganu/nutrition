@@ -1,31 +1,43 @@
 
 <div class="content-section">
     <br>
-    <input type="text" (keyup)="onKeyUp($event)" pInputText [(ngModel)]="foodName"/>
-    <button pButton type="button" label="Ingresar" (click)="busqueda()" class="ui-button-raised ui-button-secondary" style="background-color:cadetblue; border-color: cadetblue;"></button>
+    <h3>Food name:</h3>
+    <input  type="text" (keyup)="onKeyUp($event)" pInputText [(ngModel)]="foodName" />
+    <button pButton type="button" 
+                    label="Ingresar" 
+                    (click)="busqueda()" 
+                    class="ui-button-raised ui-button-secondary" 
+                    style="background-color:cadetblue; border-color: cadetblue;"></button>
+    <h3>Filter: </h3>
+    <p-dropdown [options]="dataTypeList" 
+                [(ngModel)]="dataTypeSelected" 
+                placeholder="Type of Source" 
+                optionLabel="name" 
+                [showClear]="true"></p-dropdown> 
+    <p>Data type source: {{dataTypeSelected ? dataTypeSelected.name : 'All'}}</p>
+
     <div>
     <p-table *ngIf="resultado.foods" 
             [value]="resultado.foods" 
             rowHover='true' 
             [(selection)]="SelectedRow" 
             selectionMode="single" 
-            (onRowSelect)='selectItem($event)'>
+            (onRowSelect)='selectItem($event)'
+            [responsive]="true">
         <ng-template pTemplate="header">
             <tr>
-                <th>ID</th>
+                <!--<th>ID</th>-->
                 <th>Food</th>
                 <th>Brand</th>
-                <th>Ingredients</th>
-                <th>Published Date</th>
+                <!--<th>Ingredients</th>-->
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-food>
             <tr  class="ui-selectable-row" routerLink="/details/{{food.fdcId}}">
-                <td>{{food.fdcId}}</td>
-                <td>{{food.description}}</td>
+                <!--<td>{{food.fdcId}}</td>-->
+                <td style="font-weight: bold;">{{food.description}}</td>
                 <td>{{food.brandOwner}}</td>
-                <td>{{food.ingredients}}</td>
-                <td>{{food.publishedDate | date: 'dd/MM/yyyy'}}</td>
+                <!--<td>{{food.ingredients}}</td>-->
             </tr>
         </ng-template>
         <ng-template pTemplate="footer">

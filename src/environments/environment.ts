@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   apiURL: "/fdc/v1/",
-  //apiURL: 'https://api.nal.usda.gov/fdc/v1/',
   apiKey: 'dfUWVjcTwRjj0a9e2GgbFWUpSqVRwLwqxg1LfM52'
 };
 

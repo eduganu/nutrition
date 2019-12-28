@@ -29,6 +29,8 @@
     height: 100%;
 }
 
+
+
 .topbar-menu>li>a {
     padding-bottom: 0;
     line-height: 40px;
@@ -41,8 +43,22 @@
     display: inline-block;
     box-sizing: border-box;
     height: 100%;
+    font-size: 20px;
+}
+
+.topbar-menu>a{
+    height: 100%;
+    float: right;
+    color: #fff;
+    height: 100%;
     line-height: 40px;
     font-size: 20px;
+    padding-bottom: 0;
+    line-height: 40px;
+    min-width: 60px;
+    text-decoration: none;
+    transition: background-color .2s;
+    text-align: center;
 }
 
 .content-section {

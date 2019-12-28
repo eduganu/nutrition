@@ -8,8 +8,11 @@ import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
 import {CardModule} from 'primeng/card';
 import {SpinnerModule} from 'primeng/spinner';
-
-
+import {KeyFilterModule} from 'primeng/keyfilter';
+import {DropdownModule} from 'primeng/dropdown';
+import {SlideMenuModule} from 'primeng/slidemenu';
+import {TabViewModule} from 'primeng/tabview';
+import {CalendarModule} from 'primeng/calendar';
 
 
 @NgModule({
@@ -22,7 +25,12 @@ import {SpinnerModule} from 'primeng/spinner';
     ButtonModule,
     TableModule,
     CardModule,
-    SpinnerModule
+    SpinnerModule,
+    KeyFilterModule,
+    DropdownModule,
+    SlideMenuModule,
+    TabViewModule,
+    CalendarModule
   ],
   exports:[
     InputTextModule,
@@ -31,7 +39,12 @@ import {SpinnerModule} from 'primeng/spinner';
     ButtonModule,
     TableModule,
     CardModule,
-    SpinnerModule
+    SpinnerModule,
+    KeyFilterModule,
+    DropdownModule,
+    SlideMenuModule,
+    TabViewModule,
+    CalendarModule
   ]
 })
 export class PrimengModule { }

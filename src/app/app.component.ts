@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api';
+import { UserService } from './services/user.service';
+import { UserSelection } from './models/user-selection';
+
 
 @Component({
   selector: 'app-root',
@@ -9,14 +11,19 @@ import {MenuItem} from 'primeng/api';
 export class AppComponent implements OnInit {
   
   title = 'FrontNutrition';
-  items:MenuItem[];
+
+  userFoodSelections:UserSelection[] = [];
+
+  constructor(private userService:UserService){}
 
   ngOnInit(): void {    
-    this.items = [
-          
-      {label:"Search Food", icon: 'pi pi-search', routerLink:["/searchFood"]}
-    ];
 
+  }
+
+  clearHist(){
+    console.log(this.userService.userFoodSelections)
+    this.userService.clearSearchHist()
+    console.log(this.userService.searchHist)
   }
 }
 

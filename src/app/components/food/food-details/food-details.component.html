@@ -2,9 +2,21 @@
 
     <div *ngIf="foodDetailed">
         <h2>{{foodDetailed.description}}</h2>
-        <h3>Amount ({{foodDetailed.servingSizeUnit}})</h3>
-        <p-spinner [min]="0" [(ngModel)]="amount" (onChange)="updateValues()"></p-spinner> 
+        <p *ngIf="foodDetailed.brandOwner">{{foodDetailed.brandOwner}}</p>
+        <h3>Amount ({{foodDetailed.servingSizeUnit}}):</h3>
+        <p-spinner [min]="0" [(ngModel)]="amount" pKeyFilter="int" (onChange)="updateValues()"></p-spinner>
+        &nbsp; 
+        <p-menu #menu [model]="items" [popup]="true"></p-menu>
+        <button type="button" pButton icon="pi pi-plus" label="Add" (click)="menu.toggle($event)"></button>
     </div>
+
+    
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <p-card>
+            <canvas #radarCanvas width="600" height="500"></canvas>
+        </p-card>
+    </div>
+    <div class="ui-g-12 ui-lg-1"></div>
     <div class="ui-g-12 ui-lg-4 ui-md-8 ui-sm-12">
         <p-table  *ngIf="labelList" [value]="labelList">
             <ng-template pTemplate="header">
@@ -23,12 +35,12 @@
             </ng-template>
         </p-table>
     </div>
-
-    <div class="ui-g-12 ui-lg-1"></div>
-    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
-        <p-card>
-            <canvas #radarCanvas width="600" height="300"></canvas>
-        </p-card>
+    <div *ngIf="foodDetailed">
+        <div *ngIf="foodDetailed.ingredients">
+            <h3>Ingredients:</h3>
+            <p>{{foodDetailed.ingredients}}</p>
+        </div>
     </div>
+    
 </div>
 
