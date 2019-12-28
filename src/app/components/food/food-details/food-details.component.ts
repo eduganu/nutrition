@@ -8,6 +8,7 @@ import { NutrientsLabel } from 'src/app/models/nutrientsLabel';
 import { NutrientReference } from 'src/app/models/nutrient-reference';
 import { UserService } from 'src/app/services/user.service';
 import {MenuItem} from 'primeng/api';
+import { RadarChartParams } from 'src/app/models/radar-chart-params';
 
 @Component({
   selector: 'app-food-details',
@@ -36,7 +37,7 @@ export class FoodDetailsComponent implements OnInit {
   
   private radarChart: Chart;
   
-  private parametros = {
+  /*private parametros = {
     type: "radar",
     data: {
       labels: ["Energy", "Carbohydrate", "Total Fat", "Saturated Fat", "Sugars", "Salt", "Protein"],
@@ -55,7 +56,7 @@ export class FoodDetailsComponent implements OnInit {
         }
       },
     }
-  }
+  }*/
 
 
   constructor(private foodService:FoodService,
@@ -101,8 +102,11 @@ export class FoodDetailsComponent implements OnInit {
   }
 
   initGraph(){
-    this.parametros.data.datasets[0].data = this.chartValues;
-    this.radarChart = new Chart(this.radarCanvas.nativeElement, this.parametros);
+    let radarParams = new RadarChartParams()
+    radarParams.data.datasets[0].data = this.chartValues;
+    this.radarChart = new Chart(this.radarCanvas.nativeElement, radarParams);
+    //this.parametros.data.datasets[0].data = this.chartValues;
+    //this.radarChart = new Chart(this.radarCanvas.nativeElement, this.parametros);
   }
 
 

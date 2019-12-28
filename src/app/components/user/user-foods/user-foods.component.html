@@ -5,9 +5,13 @@
     <p-calendar [(ngModel)]="fecha"></p-calendar>
 
     <p-tabView>
-        <p-tabPanel header="Total Dia">
-            Content 1
-         </p-tabPanel>
+        <p-tabPanel  header="Total Dia">
+
+                <p-card>
+                    <canvas #radarCanvas width="600" height="500"></canvas>
+                </p-card>
+
+         </p-tabPanel >
         <p-tabPanel header="Desayuno">
            Content 1
         </p-tabPanel>

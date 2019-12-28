@@ -27,6 +27,8 @@
     padding-top: 100px;
     overflow: hidden;
     background-color: #f5f7f8;
+    min-height: 700px;
+
 }
 a:-webkit-any-link {
     cursor: pointer;
