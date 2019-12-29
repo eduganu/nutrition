@@ -89,6 +89,7 @@ export class FoodDetailsComponent implements OnInit {
 
   updateValues(){
     this.updatedNutrientsLabel = this.foodService.updateNutrientsValues(this.originalNutrientsLabel, this.amount)
+    this.labelList = Object.entries(this.updatedNutrientsLabel);
     this.chartValues = this.foodService.calculatePercentage(this.updatedNutrientsLabel)
     this.initGraph();
   }

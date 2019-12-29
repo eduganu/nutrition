@@ -4,7 +4,7 @@ export class RadarChartParams{
     data = {
       labels: ["Energy", "Carbohydrate", "Total Fat", "Saturated Fat", "Sugars", "Salt", "Protein"],
       datasets:[{
-        label:"Relative to daily Percentage",
+        label:"% Relative to daily recommended",
         data: [],
         backgroundColor: 'rgb(30, 130, 140, 0.2)',
         borderColor: 'rgb(30, 130, 140, 0.8)'

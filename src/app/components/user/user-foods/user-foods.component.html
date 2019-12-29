@@ -1,28 +1,33 @@
 <div class="content-section">
     <p>Crear un user profile component on es puguin setejar els intakes parameters</p>
-    <p>user-foods works!</p>
 
     <p-calendar [(ngModel)]="fecha"></p-calendar>
 
     <p-tabView>
-        <p-tabPanel  header="Total Dia">
-
-                <p-card>
-                    <canvas #radarDayCanvas width="600" height="500"></canvas>
-                </p-card>
-
-         </p-tabPanel >
+        <p-tabPanel header="Total Dia"> 
+            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+                <canvas #radarDayCanvas width="600px" height="500px"></canvas>
+            </p-card>
+         </p-tabPanel>
         <p-tabPanel header="Desayuno">
-           Content 1
+            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+                <canvas #radarDesayunoCanvas width="600px" height="500px"></canvas>
+            </p-card>
         </p-tabPanel>
         <p-tabPanel header="Comida">
-            Content 2
+            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+                <canvas #radarComidaCanvas width="600px" height="500px"></canvas>
+            </p-card>
         </p-tabPanel>
         <p-tabPanel header="Merienda">
-            Content 3
+            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+                <canvas #radarMeriendaCanvas width="600px" height="500px"></canvas>
+            </p-card>
         </p-tabPanel>
         <p-tabPanel header="Cena">
-            Content 3
+            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+                <canvas #radarCenaCanvas width="600px" height="500px"></canvas>
+            </p-card>
         </p-tabPanel>
     </p-tabView>
 
