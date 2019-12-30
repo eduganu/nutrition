@@ -94,7 +94,6 @@ export class FoodDetailsComponent implements OnInit {
     this.initGraph();
   }
 
-
   addFood(meal:string){
     console.log("Agregamos comida" + meal)
     this.userService.addFoodToUser(new Date(),meal,this.foodDetailed)

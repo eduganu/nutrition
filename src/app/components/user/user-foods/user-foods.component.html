@@ -1,34 +1,42 @@
 <div class="content-section">
     <p>Crear un user profile component on es puguin setejar els intakes parameters</p>
 
+    <div class="ui-g-12">
     <p-calendar [(ngModel)]="fecha"></p-calendar>
+    </div>
+    <div class="ui-g-12">
+    <p-toggleButton [(ngModel)]="toogleDay"
+                    (onChange)="handleChange($event, 'Total Nutrients Intake', dayChartValues)" 
+                    onIcon="pi pi-eye"
+                    offIcon="pi pi-eye-slash"
+                    onLabel="Total del dia"
+                    offLabel="Total del dia"></p-toggleButton>
+    </div>
+    <div class="ui-g-12">
+    <p-toggleButton (onChange)="handleChange($event, 'desayuno', desayunoChartValues)" 
+                    onIcon="pi pi-eye"
+                    offIcon="pi pi-eye-slash"
+                    onLabel="Desayuno"
+                    offLabel="Desayuno"></p-toggleButton>
+    <p-toggleButton (onChange)="handleChange($event, 'comida', comidaChartValues)" 
+                    onIcon="pi pi-eye"
+                    offIcon="pi pi-eye-slash"
+                    onLabel="Comida"
+                    offLabel="Comida"></p-toggleButton>
+    <p-toggleButton (onChange)="handleChange($event, 'merienda', meriendaChartValues)" 
+                    onIcon="pi pi-eye"
+                    offIcon="pi pi-eye-slash"
+                    onLabel="Merienda"
+                    offLabel="Merienda"></p-toggleButton>
+    <p-toggleButton (onChange)="handleChange($event, 'cena', cenaChartValues)" 
+                    onIcon="pi pi-eye"
+                    offIcon="pi pi-eye-slash"
+                    onLabel="Cena"
+                    offLabel="Cena"></p-toggleButton>
+    </div>
 
-    <p-tabView>
-        <p-tabPanel header="Total Dia"> 
-            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
-                <canvas #radarDayCanvas width="600px" height="500px"></canvas>
-            </p-card>
-         </p-tabPanel>
-        <p-tabPanel header="Desayuno">
-            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
-                <canvas #radarDesayunoCanvas width="600px" height="500px"></canvas>
-            </p-card>
-        </p-tabPanel>
-        <p-tabPanel header="Comida">
-            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
-                <canvas #radarComidaCanvas width="600px" height="500px"></canvas>
-            </p-card>
-        </p-tabPanel>
-        <p-tabPanel header="Merienda">
-            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
-                <canvas #radarMeriendaCanvas width="600px" height="500px"></canvas>
-            </p-card>
-        </p-tabPanel>
-        <p-tabPanel header="Cena">
-            <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
-                <canvas #radarCenaCanvas width="600px" height="500px"></canvas>
-            </p-card>
-        </p-tabPanel>
-    </p-tabView>
+    <p-card class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <canvas  #radarDayCanvas width="600px" height="750px"></canvas>
+    </p-card>
 
 </div>

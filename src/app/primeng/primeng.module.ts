@@ -13,6 +13,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {TabViewModule} from 'primeng/tabview';
 import {CalendarModule} from 'primeng/calendar';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {CalendarModule} from 'primeng/calendar';
     DropdownModule,
     SlideMenuModule,
     TabViewModule,
-    CalendarModule
+    CalendarModule,
+    ToggleButtonModule
   ],
   exports:[
     InputTextModule,
@@ -44,7 +46,8 @@ import {CalendarModule} from 'primeng/calendar';
     DropdownModule,
     SlideMenuModule,
     TabViewModule,
-    CalendarModule
+    CalendarModule,
+    ToggleButtonModule
   ]
 })
 export class PrimengModule { }

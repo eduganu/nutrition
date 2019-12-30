@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SearchResult } from '../models/searchResult';
 import { FoodDetailed } from '../models/food-detailed';
 import { UserSelection } from '../models/user-selection';
+import { NutrientReference } from '../models/nutrient-reference';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class UserService {
   searchHist:SearchResult[] = [];
   foodDetailedHist:FoodDetailed[] = [];
   userFoodSelections:UserSelection[] = [];
+  userNutrientsReference:NutrientReference = new NutrientReference();
 
   constructor() { }
 

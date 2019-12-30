@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { FoodSearchComponent } from './components/food/food-search/food-search.component';
 import { FoodDetailsComponent } from './components/food/food-details/food-details.component';
 import { UserFoodsComponent } from './components/user/user-foods/user-foods.component';
+import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UserFoodsComponent } from './components/user/user-foods/user-foods.comp
     AppComponent,
     FoodSearchComponent,
     FoodDetailsComponent,
-    UserFoodsComponent
+    UserFoodsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

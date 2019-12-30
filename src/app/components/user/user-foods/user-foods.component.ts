@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { UserSelection } from 'src/app/models/user-selection';
 import {Chart} from 'chart.js'
-import { FoodNutrient } from 'src/app/models/food-nutrient';
 import { FoodService } from 'src/app/services/food.service';
 import { NutrientsLabel } from 'src/app/models/nutrientsLabel';
 import { RadarChartParams } from 'src/app/models/radar-chart-params';
+import { ChartColors } from 'src/app/models/chart-colors';
 
 @Component({
   selector: 'app-user-foods',
@@ -15,9 +15,12 @@ import { RadarChartParams } from 'src/app/models/radar-chart-params';
 export class UserFoodsComponent implements OnInit {
 
   fecha:Date = new Date();
+  radarParams = new RadarChartParams();
+  toogleDay:boolean = true;
+  availableChartColors:ChartColors = new ChartColors(); 
 
   allSelections:UserSelection[];
-  
+
   filteredByDay:UserSelection[];
   filteredDesayuno:UserSelection[];
   filteredComida:UserSelection[];
@@ -27,18 +30,13 @@ export class UserFoodsComponent implements OnInit {
   dayChartValues:number[] = [];
   desayunoChartValues:number[] = [];
   comidaChartValues:number[] = [];
+  meriendaChartValues:number[] = [];
+  cenaChartValues:number[] = [];
 
   @ViewChild("radarDayCanvas",{static:true}) radarDayCanvas: ElementRef;
-  @ViewChild("radarDesayunoCanvas",{static:true}) radarDesayunoCanvas: ElementRef;
-  @ViewChild("radarComidaCanvas",{static:true}) radarComidaCanvas: ElementRef;
-  @ViewChild("radarMeriendaCanvas",{static:true}) radarMeriendaCanvas: ElementRef;
-  @ViewChild("radarCenaCanvas",{static:true}) radarCenaCanvas: ElementRef;
+
   
   private radarChartDay: Chart;
-  private radarChartDesayuno: Chart;
-  private radarChartComida: Chart;
-  private radarChartMerienda: Chart;
-  private radarChartCena: Chart;
 
   constructor(private userService:UserService,
               private foodService:FoodService) { }
@@ -48,47 +46,43 @@ export class UserFoodsComponent implements OnInit {
     //console.log(this.userService.userFoodSelections)
 
     this.filterByDay();
-    console.log("elementos filtrados");
-    console.log(this.filteredByDay);
 
     this.filteredDesayuno = this.filterByMeal("desayuno");
-    console.log("elementos desayuno");
-    console.log(this.filteredDesayuno);
-
     this.filteredComida = this.filterByMeal("comida");
-
+    this.filteredMerienda = this.filterByMeal("merienda");
+    this.filteredCena = this.filterByMeal("cena")
 
     this.dayChartValues = this.calculateChartValues(this.filteredByDay);
     this.initDayGraph(this.dayChartValues);
 
     this.desayunoChartValues = this.calculateChartValues(this.filteredDesayuno);
-    this.initDesayunoGraph(this.desayunoChartValues, this.radarDesayunoCanvas);
-
     this.comidaChartValues = this.calculateChartValues(this.filteredComida);
-    this.initComidaGraph(this.comidaChartValues);
-
+    this.meriendaChartValues = this.calculateChartValues(this.filteredMerienda);
+    this.cenaChartValues = this.calculateChartValues(this.filteredCena);
 
   }
 
   filterByDay(){
+
     this.filteredByDay = this.allSelections.filter(element => {
       return element.date.getFullYear == this.fecha.getFullYear &&
              element.date.getUTCMonth == this.fecha.getUTCMonth &&
              element.date.getUTCDay == this.fecha.getUTCDay;
     })
-
-    // func calculateMealsChart()
   }
 
   filterByMeal(meal:string):UserSelection[]{
+
     let filteredList: UserSelection[];
     filteredList = this.filteredByDay.filter(element => {
       return element.meal == meal;
     })
+
     return filteredList;
   }
 
   calculateChartValues(filteredList:UserSelection[]){
+
     let originalMappedList:NutrientsLabel[] = [];
     let chartValues:number[] = [0,0,0,0,0,0,0];
     
@@ -111,24 +105,57 @@ export class UserFoodsComponent implements OnInit {
   }
 
   initDayGraph(chartValues:number[]){
-    let radarParams = new RadarChartParams();
-    radarParams.data.datasets[0].data = chartValues;
-    this.radarChartDay = new Chart(this.radarDayCanvas.nativeElement, radarParams);
-    //this.parametros.data.datasets[0].data = this.chartValues;
-    //this.radarChart = new Chart(this.radarCanvas.nativeElement, this.parametros);
+    
+    this.radarParams.data.datasets[0].label = "% Total Nutrients Intake"
+    this.radarParams.data.datasets[0].data = chartValues;
+    this.radarChartDay = new Chart(this.radarDayCanvas.nativeElement, this.radarParams);
   }
 
-  initDesayunoGraph(chartValues:number[], canvas){
-    let radarParams = new RadarChartParams();
-    radarParams.data.datasets[0].data = chartValues;
-    this.radarChartDesayuno = new Chart(canvas.nativeElement, radarParams);
+  handleChange(event, mealName:string, chartValues:number[]){
+
+    if (event.checked == true){
+      this.addDatasetToChart(mealName,chartValues)
+    }
+    else {
+      this.removeDatasetFromChart(mealName)
+    }
   }
 
-  initComidaGraph(chartValues:number[]){
-    let radarParams = new RadarChartParams();
-    radarParams.data.datasets[0].data = chartValues;
-    this.radarChartComida = new Chart(this.radarComidaCanvas.nativeElement, radarParams);
+  addDatasetToChart(mealName:string, chartValues:number[]){
+
+    let datasetParams = new RadarChartParams().data.datasets[0] 
+    let color = this.random_rgba()
+    
+    if (mealName == "Total Nutrients Intake"){
+      color = this.availableChartColors.dia
+    } else if (Object.keys(this.availableChartColors).includes(mealName)) {
+    color = this.availableChartColors[mealName]
+    }
+
+    datasetParams.backgroundColor = color + "0.2)";
+    datasetParams.borderColor = color + "0.8";
+
+    datasetParams.label = "% " + mealName;
+    datasetParams.data = chartValues;
+
+    this.radarParams.data.datasets.push(datasetParams)
+    this.radarChartDay.update();
   }
 
+  removeDatasetFromChart(mealName:string){
+
+    this.radarParams.data.datasets.forEach((element,index) => {
+      if (("% " + mealName) === element.label) {
+        this.radarParams.data.datasets.splice(index,1)
+      }
+    })
+
+    this.radarChartDay.update();
+  }
+
+  random_rgba() {
+    var o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ', ';
+  }
 
 }

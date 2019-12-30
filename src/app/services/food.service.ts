@@ -6,6 +6,7 @@ import { SearchResult } from 'src/app/models/searchResult';
 import { FoodNutrient } from '../models/food-nutrient';
 import { NutrientsLabel } from '../models/nutrientsLabel';
 import { NutrientReference } from '../models/nutrient-reference';
+import { UserService } from './user.service';
 
 const apiURL = environment.apiURL
 const apiKey = environment.apiKey
@@ -16,9 +17,10 @@ export class FoodService {
 
   keyParameter = "api_key=" + apiKey
 
-  nutrientReference:NutrientReference = new NutrientReference();
+  nutrientReference:NutrientReference = this.userService.userNutrientsReference;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,
+              private userService:UserService) { }
 
   search(foodName:string, pageNumber:number=1, dataType:any):Observable<SearchResult>{
     if (pageNumber < 1) {pageNumber = 1};
