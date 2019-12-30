@@ -13,8 +13,8 @@
                 [(ngModel)]="dataTypeSelected" 
                 placeholder="Type of Source" 
                 optionLabel="name" 
-                [showClear]="true"></p-dropdown> 
-    <p>Data type source: {{dataTypeSelected ? dataTypeSelected.name : 'All'}}</p>
+                [showClear]="true"></p-dropdown> Data type source: {{dataTypeSelected ? dataTypeSelected.name : 'All'}}
+    <p></p>
 
     <div>
     <p-table *ngIf="resultado.foods" 

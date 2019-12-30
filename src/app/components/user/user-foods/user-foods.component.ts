@@ -85,22 +85,28 @@ export class UserFoodsComponent implements OnInit {
 
     let originalMappedList:NutrientsLabel[] = [];
     let chartValues:number[] = [0,0,0,0,0,0,0];
+    let amounts:number[] = []
+    let amountsIndex = 0
+    console.log("filtered List")
+    console.log(filteredList)
     
-    console.log(this.filteredByDay.values()) 
+    //console.log(this.filteredByDay.values()) 
     filteredList.forEach(element => {
       originalMappedList.push(this.foodService.mapNutrientsLabel(element.food.foodNutrients))
+      amounts.push(element.amount)
     })
 
-    console.log(originalMappedList)
+    //console.log(originalMappedList)
     originalMappedList.forEach(element => {
-      let updatedNutrientsLabel = this.foodService.updateNutrientsValues(element,100);
+      let updatedNutrientsLabel = this.foodService.updateNutrientsValues(element,amounts[amountsIndex]); //substituir el 100 pel parametre amountIngerit
+      amountsIndex++;
       let chartValuesTemp = (this.foodService.calculatePercentage(updatedNutrientsLabel));
       chartValuesTemp.map((value,index) => {
         chartValues[index] += value
       })
     })
 
-    console.log(chartValues)
+    //console.log(chartValues)
     return chartValues
   }
 

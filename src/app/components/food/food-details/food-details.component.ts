@@ -96,7 +96,7 @@ export class FoodDetailsComponent implements OnInit {
 
   addFood(meal:string){
     console.log("Agregamos comida" + meal)
-    this.userService.addFoodToUser(new Date(),meal,this.foodDetailed)
+    this.userService.addFoodToUser(new Date(),meal, this.amount, this.foodDetailed)
     console.log(this.userService.userFoodSelections)
   }
 

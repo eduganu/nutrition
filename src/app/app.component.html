@@ -5,7 +5,7 @@
             <li>
                 <a (click)="clearHist()" routerLink="/searchFood">Search Food</a>
             </li>
-                <a (click)="clearHist()" routerLink="/user/foods"><i class="pi pi-user"></i></a>
+                <a (click)="clearHist()" routerLink="/user/profile"><i class="pi pi-user"></i></a>
                 <a (click)="clearHist()" routerLink="/user/foods"><i class="pi pi-chart-bar"></i></a> 
         </ul>
     </div>
@@ -15,8 +15,6 @@
     <button type="button" pButton icon="pi pi-bars" label="Menu" (click)="menu.toggle($event)"></button>
     -->
     <div class="layout-content">
-        <div class="ng-tns-c0-0">
-            <router-outlet></router-outlet>
-        </div>
+        <router-outlet></router-outlet>
     </div>
 </body>

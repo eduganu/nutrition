@@ -14,6 +14,8 @@ import {SlideMenuModule} from 'primeng/slidemenu';
 import {TabViewModule} from 'primeng/tabview';
 import {CalendarModule} from 'primeng/calendar';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import {SliderModule} from 'primeng/slider';
+import {AccordionModule} from 'primeng/accordion';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     SlideMenuModule,
     TabViewModule,
     CalendarModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    SliderModule,
+    AccordionModule
   ],
   exports:[
     InputTextModule,
@@ -47,7 +51,9 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     SlideMenuModule,
     TabViewModule,
     CalendarModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    SliderModule,
+    AccordionModule
   ]
 })
 export class PrimengModule { }

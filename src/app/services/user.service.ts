@@ -30,11 +30,12 @@ export class UserService {
     this.foodDetailedHist.push(foodDetailed);
   }
 
-  addFoodToUser(date:Date,meal:string,food:FoodDetailed){
+  addFoodToUser(date:Date, meal:string, amount:number, food:FoodDetailed){
     
     let userSelection = new UserSelection();
     userSelection.date = date;
     userSelection.meal = meal;
+    userSelection.amount = amount;
     userSelection.food = food;
     
     this.userFoodSelections.push(userSelection);

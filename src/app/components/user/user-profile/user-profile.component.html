@@ -1,1 +1,69 @@
-<p>user-profile works!</p>
+<div class="content-section">
+    <h2>User Profile</h2>
+    
+    <p-accordion >
+        <p-accordionTab header="Nutrients intake parameters">
+    <div class="ui-g-12" style="background-color:#d9e4e9">
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <h3>Energy (kcal): 
+            <button pButton type="button" label="Reset" (click)="resetValue('energy')" class="ui-button-rounded ui-button-secondary" style="float: right"></button>
+        </h3>
+        <input class="ui-g-12" type="text"
+        pInputText [(ngModel)]="userService.userNutrientsReference.energy.value"/>
+        <p-slider [(ngModel)]="userService.userNutrientsReference.energy.value" [min]="1000" [max]="5000"></p-slider>
+    </div>
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <h3>Carbohydrates (g):
+            <button pButton type="button" label="Reset" (click)="resetValue('carbohydrate')" class="ui-button-rounded ui-button-secondary" style="float: right"></button>
+        </h3>
+        <input class="ui-g-12" type="text"
+        pInputText [(ngModel)]="userService.userNutrientsReference.carbohydrate.value"/>
+        <p-slider [(ngModel)]="userService.userNutrientsReference.carbohydrate.value" [min]="0" [max]="1000"></p-slider>
+    </div>
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <h3>Protein (g): 
+            <button pButton type="button" label="Reset" (click)="resetValue('protein')" class="ui-button-rounded ui-button-secondary" style="float: right"></button>
+        </h3>
+        <input class="ui-g-12" type="text"
+        pInputText [(ngModel)]="userService.userNutrientsReference.protein.value"/>
+        <p-slider [(ngModel)]="userService.userNutrientsReference.protein.value" [min]="0" [max]="300"></p-slider>
+    </div>
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <h3>Fat (g): 
+            <button pButton type="button" label="Reset" (click)="resetValue('totalFat')" class="ui-button-rounded ui-button-secondary" style="float: right"></button>
+        </h3>
+        <input class="ui-g-12" type="text"
+        pInputText [(ngModel)]="userService.userNutrientsReference.totalFat.value"/>
+        <p-slider [(ngModel)]="userService.userNutrientsReference.totalFat.value" [min]="0" [max]="300"></p-slider>
+    </div>
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <h3>Saturated Fat (g):
+            <button pButton type="button" label="Reset" (click)="resetValue('saturatedFat')" class="ui-button-rounded ui-button-secondary" style="float: right"></button>
+        </h3>
+        <input class="ui-g-12" type="text"
+        pInputText [(ngModel)]="userService.userNutrientsReference.saturatedFat.value"/>
+        <p-slider [(ngModel)]="userService.userNutrientsReference.saturatedFat.value" [min]="0" [max]="100"></p-slider>
+    </div>
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <h3>Sugars (g):
+            <button pButton type="button" label="Reset" (click)="resetValue('sugars')" class="ui-button-rounded ui-button-secondary" style="float: right"></button>
+        </h3>
+        <input class="ui-g-12" type="text"
+        pInputText [(ngModel)]="userService.userNutrientsReference.sugars.value"/>
+        <p-slider [(ngModel)]="userService.userNutrientsReference.sugars.value" [min]="0" [max]="320"></p-slider>
+    </div>
+    <div class="ui-g-12 ui-lg-6 ui-md-8 ui-sm-12">
+        <h3>Sodium (mg):
+            <button pButton type="button" label="Reset" (click)="resetValue('sodium')" class="ui-button-rounded ui-button-secondary" style="float: right"></button>
+        </h3>
+        <input class="ui-g-12" type="text"
+        pInputText [(ngModel)]="userService.userNutrientsReference.sodium.value"/>
+        <p-slider [(ngModel)]="userService.userNutrientsReference.sodium.value" [min]="0" [max]="20000"></p-slider>
+    </div>
+</div>
+
+    </p-accordionTab>
+    </p-accordion>
+
+
+</div>
