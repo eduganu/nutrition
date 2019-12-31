@@ -26,6 +26,7 @@ export class FoodService {
     if (pageNumber < 1) {pageNumber = 1};
     let searchExtension = 'generalSearchInput=' + foodName;
     let pageExtension = 'pageNumber=' + pageNumber;
+    console.log(apiURL)
     let sendURL = (apiURL + "search?" + this.keyParameter +  "&" + searchExtension + "&" + pageExtension)
     console.log(dataType)
     if (dataType){

@@ -35,7 +35,6 @@ export class UserFoodsComponent implements OnInit {
 
   @ViewChild("radarDayCanvas",{static:true}) radarDayCanvas: ElementRef;
 
-  
   private radarChartDay: Chart;
 
   constructor(private userService:UserService,
@@ -87,8 +86,6 @@ export class UserFoodsComponent implements OnInit {
     let chartValues:number[] = [0,0,0,0,0,0,0];
     let amounts:number[] = []
     let amountsIndex = 0
-    console.log("filtered List")
-    console.log(filteredList)
     
     //console.log(this.filteredByDay.values()) 
     filteredList.forEach(element => {
